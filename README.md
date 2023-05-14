@@ -9,7 +9,7 @@ Question: I personally have harder time playing on the Red side (Upper right) th
 
 Why should care about the dataset and the question?:
 
-Num of rows: 149400 rows
+Num of rows: 149,400 rows
 
 names of the columns that are relevant: gameid, result, side, golddiffat10, golddiffat15, csdiffat10, csdiffat15
 
@@ -24,6 +24,14 @@ descriptions of the relevant columns:
 
 
 ## Data Cleaning
+
+| gameid                | result   | side   |   golddiffat10 |   golddiffat15 |   csdiffat10 |   csdiffat15 |
+|:----------------------|:---------|:-------|---------------:|---------------:|-------------:|-------------:|
+| ESPORTSTMNT01_2690210 | False    | Blue   |           1523 |            107 |           -8 |          -23 |
+| ESPORTSTMNT01_2690210 | True     | Red    |          -1523 |           -107 |            8 |           23 |
+| ESPORTSTMNT01_2690219 | False    | Blue   |          -1619 |          -1763 |          -27 |          -22 |
+| ESPORTSTMNT01_2690219 | True     | Red    |           1619 |           1763 |           27 |           22 |
+| 8401-8401_game_1      | True     | Blue   |            nan |            nan |          nan |          nan |
 
 (Describe, in detail, the data cleaning steps you took and how they affected your analyses. The steps should be explained in reference to the data generating process. Show the head of your cleaned DataFrame)
 
@@ -43,9 +51,9 @@ we aren't comparing specific position. thus, only need to look at team (raw data
 
 1-2 sentence explanation about the plot (describe and interpret any trends): both Blue and Red are centered around 0 but Blue's median is slightly right of 0 and Red's median is slightly left of 0. Several outliers exist in both Blue and Red. 50% of data points is within -1,000, and 1,000
 
-## Interesting Aggregates
+<iframe src="assets/golddiffat15_dist_by_hist.html" width=800 height=600 frameBorder=0></iframe>
 
-Embed at least one grouped table or pivot table in your website and explain its significance.
+## Interesting Aggregates
 
 | result   |     Blue |      Red |
 |:---------|---------:|---------:|
@@ -64,8 +72,25 @@ Present and interpret the results of your missingness permutation tests with res
 • The distribution of column Y when column X is missing and the distribution of column Y when column X is not missing, as was done in Lecture 12.
 • The empirical distribution of the test statistic used in one of your permutation tests, along with the observed statistic.
 
+<iframe src="assets/TVD_height0.14.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/TVD_height0.2.html" width=800 height=600 frameBorder=0></iframe>
+
 ## Hypothesis Testing
 
-Clearly state your null and alternative hypotheses, your choice of test statistic and significance level, the resulting p-value, and your conclusion. Justify why these choices are good choices for answering the question you are trying to answer.
+Null hypothesis : Two sides (Blue and Red) should have about the same gold at 10 minutes since a game starts --> golddiffat10 (goldat10 - opp_goldat10) should have a mean of 0.
 
-Tip: When making writing your conclusions to the statistical tests in this project, never use language that implies an absolute conclusion; since we are performing statistical tests and not randomized controlled trials, we cannot prove that either hypothesis is 100% true or false.
+Alternative hypothesis : Blue side has more goldat10 --> golddiffat10's mean is larger than 0.
+
+test statistic : mean
+
+significance level : 0.01
+
+<iframe src="assets/Mean_height0.08.html" width=800 height=600 frameBorder=0></iframe>
+
+resulting p-value : 0.0
+
+conclusion : Since p-value (0.0) is less than <0.05, we reject the null hypothesis --> this suggests that the Blue side has more goldat10 than the Red side
+
+Justify why these choices are good choices for answering the question you are trying to answer:
+
