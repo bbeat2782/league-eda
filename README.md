@@ -33,17 +33,26 @@ we aren't comparing specific position. thus, only need to look at team (raw data
 
 ## Univariate Analysis
 
-Embed at least one plotly plot you created in your notebook that displays the distribution of a single column (see Part 2: Report for instructions). Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
-
 <iframe src="assets/golddiffat10_univariate_dist.html" width=800 height=600 frameBorder=0></iframe>
+
+1-2 sentence explanation about the plot (describe and interpret any trends): normally distributed centered at 0, goes as high as about 9000 and low as about -9000
 
 ## Bivariate Analysis
 
-Embed at least one plotly plot that displays the relationship between two columns. Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
+<iframe src="assets/golddiffat10_side_bivariate_dist.html" width=800 height=600 frameBorder=0></iframe>
+
+1-2 sentence explanation about the plot (describe and interpret any trends): both Blue and Red are centered around 0 but Blue's median is slightly right of 0 and Red's median is slightly left of 0. Several outliers exist in both Blue and Red. 50% of data points is within -1,000, and 1,000
 
 ## Interesting Aggregates
 
 Embed at least one grouped table or pivot table in your website and explain its significance.
+
+| result   |     Blue |      Red |
+|:---------|---------:|---------:|
+| Lose     | -632.109 | -743.577 |
+| Win      |  743.716 |  632.499 |
+
+explain its significance: 
 
 ## NMAR Analysis
 
