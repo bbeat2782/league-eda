@@ -28,6 +28,7 @@ gameid, result, side, golddiffat10, golddiffat15
 ## Cleaning and EDA
 
 ### Data Cleaning
+
 | gameid                | result   | side   |   golddiffat10 |   golddiffat15 |
 |:----------------------|:---------|:-------|---------------:|---------------:|
 | ESPORTSTMNT01_2690210 | False    | Blue   |           1523 |            107 |
@@ -57,13 +58,14 @@ The plot contains two boxplots of golddiffat10 by Blue and Red team. Both are ap
 ### Interesting Aggregates
 
 `team_lol.pivot_table(index='result', columns='side', values=feature, aggfunc='mean')`
+
 | result   |     Blue |      Red |
 |:---------|---------:|---------:|
 | Lose     | -632.109 | -743.577 |
 | Win      |  743.716 |  632.499 |
 
 #### Significance: 
-If side does not affect golddiffat10
+If side does not affect golddiffat10, ith entry of two columns should be similar. But since they are not, it shows there might be a possibility that side affects golddiffat10.
 
 ## NMAR Analysis
 
