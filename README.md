@@ -67,19 +67,35 @@ The plot contains two boxplots of golddiffat10 by Blue and Red team. Both are ap
 #### Significance: 
 If side does not affect golddiffat10, ith entry of two columns should be similar. But since they are not, it shows there might be a possibility that side affects golddiffat10.
 
-## NMAR Analysis
+## Assessment of Missingness
 
-State whether you believe there is a column in your dataset that is NMAR. Explain your reasoning and any additional data you might want to obtain that could explain the missingness (thereby making it MAR). Make sure to explicitly use the term “NMAR.”
+### NMAR Analysis
 
-## Missingness Dependency
+We believe 'url' column is NMAR because a game with lower popularity is less likely to have url. We thought this is a valid reason since people won't likely to search for not popular games. So if we can get amount of prize you get from winning or popularity of different entries in 'league' column, we might be able to explain the missingness.
+
+### Missingness Dependency
 
 Present and interpret the results of your missingness permutation tests with respect to your data and question. Embed a plotly plot related to your missingness exploration; ideas include:
 • The distribution of column Y when column X is missing and the distribution of column Y when column X is not missing, as was done in Lecture 12.
 • The empirical distribution of the test statistic used in one of your permutation tests, along with the observed statistic.
 
+<iframe src="assets/golddiffat10_missingness_on_game.html" width=800 height=600 frameBorder=0></iframe>
+
+For each game number, golddiffat10's missingness changes. Thus, it seems like the missingness of golddiffat10 depends on game number.
+
 <iframe src="assets/TVD_height0.14.html" width=800 height=600 frameBorder=0></iframe>
 
+Since the observed TVD is far right from the right end point of empirical distribution, we reject the null hypothesis. Thus, it suggests that the missingness of golddiffat10 depends on game value.
+
+---
+
+<iframe src="assets/golddiffat10_missingness_on_result.html" width=800 height=600 frameBorder=0></iframe>
+
+For each result, golddiffat10's missingness does not change. Thus, it seems like result does not explain the missingness of golddiffat10.
+
 <iframe src="assets/TVD_height0.2.html" width=800 height=600 frameBorder=0></iframe>
+
+Since the observed TVD is inside the empirical distribution, the area of the empirical distribution to the right of the observed TVD is greater than 0.05. Thus, we keep the null hypothesis, which suggests golddiffat10's missingness does not depend on result values.
 
 ## Hypothesis Testing
 
