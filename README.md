@@ -79,7 +79,7 @@ We believe 'url' column is NMAR because a game with lower popularity is less lik
 
 For each game number, golddiffat10's missingness changes. Thus, it seems like the missingness of golddiffat10 depends on game number.
 
-<iframe src="assets/TVD_height0.1.html" width="100%" height=500 frameBorder=0></iframe>
+<iframe src="assets/TVD_height0.14.html" width="100%" height=500 frameBorder=0></iframe>
 
 Since the observed TVD is far right from the right end point of empirical distribution, we reject the null hypothesis. Thus, it suggests that the missingness of golddiffat10 depends on game value.
 
@@ -107,7 +107,7 @@ We chose mean as our test statistic because the distribution of golddiffat10 is 
 ### Significance level : 
 0.01
 
-<iframe src="assets/Mean_height0.08.html" width="100%" height=500 frameBorder=0></iframe>
+<iframe src="assets/Mean_height0.2.html" width="100%" height=500 frameBorder=0></iframe>
 
 ### Resulting p-value : 
 0.0
