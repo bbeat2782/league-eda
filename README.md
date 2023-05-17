@@ -3,7 +3,8 @@ This is a project for DSC80 at UCSD
 
 ## Introduction and Question Identification
 
-Introduction: 
+Introduction
+---
 
 Question: I personally have harder time playing on the Red side (Upper right) than on the Blue side (Lower left) because of the difference in the spot on a minotor you should focus on. Will this be true for others? To test this statistically, does the side have an effect on difference in golds of each side at 10 minutes and 15 minutes since a game starts?
 
