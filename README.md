@@ -94,4 +94,3 @@ resulting p-value : 0.0
 conclusion : Since p-value (0.0) is less than <0.05, we reject the null hypothesis --> this suggests that the Blue side has more goldat10 than the Red side
 
 Justify why these choices are good choices for answering the question you are trying to answer:
-
