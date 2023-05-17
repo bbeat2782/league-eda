@@ -3,65 +3,67 @@ This is a project for DSC80 at UCSD
 
 ## Introduction and Question Identification
 
-Introduction
----
+### Introduction :video_game: : 
+This dataset contains 2022 professional leagues matches. For each game, there are 10 rows representing 10 players and 2 rows representing 2 teams. And there are various columns for statistic of each game such as goldat10, dragon, assistsat10, etc.
 
-Question: I personally have harder time playing on the Red side (Upper right) than on the Blue side (Lower left) because of the difference in the spot on a minotor you should focus on. Will this be true for others? To test this statistically, does the side have an effect on difference in golds of each side at 10 minutes and 15 minutes since a game starts?
+### Question: 
+I personally have harder time playing on the Red side (upper right) than on the Blue side (lower left) because of the difference in perspective. Will this be true for professional players? To test this statistically, does the side have an effect on difference in golds of each side at 10 minutes since a game starts?
 
-Why should care about the dataset and the question?:
+### Why should you care about the question?
+It is because side shouldn't affect fairness of a game by resulting difference in gold amount.
 
-Num of rows: 149,400 rows
+### Num of rows
+149,400 rows
 
-names of the columns that are relevant: gameid, result, side, golddiffat10, golddiffat15, csdiffat10, csdiffat15
+### Relevant columns: 
+gameid, result, side, golddiffat10, golddiffat15
 
-descriptions of the relevant columns:
+### Descriptions of each column:
 - gameid: unique id for each game
 - result: whether a team win or not, 0 for lose and 1 for win
 - side: blue or red, blue for lower left and red for upper right
-- golddiffat10: goldat10 - opp_goldat10, self - opponent goldat10, 10 minutes since game start
-- golddiffat15: same as above but 15 minutes
-- csdiffat10: csat10 - opp_csat10, same idea as above but with cs (number of minions killed)
-- csdiffat15: same as above
+- golddiffat10: goldat10 - opp_goldat10 (=self - opponent goldat10), 10 signifies 10 minutes since game starts
+- golddiffat15: same as above but 15 minutes since game starts
 
+## Cleaning and EDA
 
-## Data Cleaning
+### Data Cleaning
+| gameid                | result   | side   |   golddiffat10 |   golddiffat15 |
+|:----------------------|:---------|:-------|---------------:|---------------:|
+| ESPORTSTMNT01_2690210 | False    | Blue   |           1523 |            107 |
+| ESPORTSTMNT01_2690210 | True     | Red    |          -1523 |           -107 |
+| ESPORTSTMNT01_2690219 | False    | Blue   |          -1619 |          -1763 |
+| ESPORTSTMNT01_2690219 | True     | Red    |           1619 |           1763 |
+| 8401-8401_game_1      | True     | Blue   |            nan |            nan |
 
-| gameid                | result   | side   |   golddiffat10 |   golddiffat15 |   csdiffat10 |   csdiffat15 |
-|:----------------------|:---------|:-------|---------------:|---------------:|-------------:|-------------:|
-| ESPORTSTMNT01_2690210 | False    | Blue   |           1523 |            107 |           -8 |          -23 |
-| ESPORTSTMNT01_2690210 | True     | Red    |          -1523 |           -107 |            8 |           23 |
-| ESPORTSTMNT01_2690219 | False    | Blue   |          -1619 |          -1763 |          -27 |          -22 |
-| ESPORTSTMNT01_2690219 | True     | Red    |           1619 |           1763 |           27 |           22 |
-| 8401-8401_game_1      | True     | Blue   |            nan |            nan |          nan |          nan |
+1. Since each game is represented with 12 rows (10 players and 2 teams), we dropped players rows to avoid double counting.
 
-(Describe, in detail, the data cleaning steps you took and how they affected your analyses. The steps should be explained in reference to the data generating process. Show the head of your cleaned DataFrame)
+2. Since all statistics from each game are recorded but we are only interested in gameid, result, side, golddiffat10, and golddiffat15, we only selected these columns.
 
-There are bunch of columns that we don't need --> select only a few of them that are necessary for our analysis --> result column is consisted of 0 and 1 --> turn this into False and True
+3. For result column, entries are either 0 for lose and 1 for win. We turned each 0 and 1 to False and True because ~~
 
-we aren't comparing specific position. thus, only need to look at team (raw data has rows for all 10 players and 2 teams per each game) --> only selected position == 'team'
-
-## Univariate Analysis
+### Univariate Analysis
 
 <iframe src="assets/golddiffat10_univariate_dist.html" width=800 height=600 frameBorder=0></iframe>
 
-1-2 sentence explanation about the plot (describe and interpret any trends): normally distributed centered at 0, goes as high as about 9000 and low as about -9000
+It is a histogram of golddiffat10, and it's normally distributed and centered at 0. It goes up to 9000 and low to -9000. 
 
-## Bivariate Analysis
+### Bivariate Analysis
 
 <iframe src="assets/golddiffat10_side_bivariate_dist.html" width=800 height=600 frameBorder=0></iframe>
 
-1-2 sentence explanation about the plot (describe and interpret any trends): both Blue and Red are centered around 0 but Blue's median is slightly right of 0 and Red's median is slightly left of 0. Several outliers exist in both Blue and Red. 50% of data points is within -1,000, and 1,000
+The plot contains two boxplots of golddiffat10 by Blue and Red team. Both are approximately centered at 0. However, Blue team's median is slightly right of 0, whereas Red team's median is slightly left of 0. Several outliers exist in both Blue and Red team, but Blue team's outliers are skewed more to the right than Red team's. 50% of data points are within -1,000 and 1,000.
 
-<iframe src="assets/golddiffat15_dist_by_hist.html" width=800 height=600 frameBorder=0></iframe>
+### Interesting Aggregates
 
-## Interesting Aggregates
-
+`team_lol.pivot_table(index='result', columns='side', values=feature, aggfunc='mean')`
 | result   |     Blue |      Red |
 |:---------|---------:|---------:|
 | Lose     | -632.109 | -743.577 |
 | Win      |  743.716 |  632.499 |
 
-explain its significance: 
+#### Significance: 
+If side does not affect golddiffat10
 
 ## NMAR Analysis
 
