@@ -3,7 +3,7 @@ This is a project for DSC80 at UCSD
 
 ## Introduction and Question Identification
 
-### Introduction :video_game: : 
+### Introduction : 
 This dataset contains 2022 professional leagues matches. For each game, there are 10 rows representing 10 players and 2 rows representing 2 teams. And there are various columns for statistic of each game such as goldat10, dragon, assistsat10, etc.
 
 ### Question: 
@@ -45,13 +45,13 @@ gameid, result, side, golddiffat10, golddiffat15
 
 ### Univariate Analysis
 
-<iframe src="assets/golddiffat10_univariate_dist.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/golddiffat10_univariate_dist.html" width="100%" height="100%" frameBorder=0></iframe>
 
 It is a histogram of golddiffat10, and it's normally distributed and centered at 0. It goes up to 9000 and low to -9000. 
 
 ### Bivariate Analysis
 
-<iframe src="assets/golddiffat10_side_bivariate_dist.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/golddiffat10_side_bivariate_dist.html" width="100%" height="100%" frameBorder=0></iframe>
 
 The plot contains two boxplots of golddiffat10 by Blue and Red team. Both are approximately centered at 0. However, Blue team's median is slightly right of 0, whereas Red team's median is slightly left of 0. Several outliers exist in both Blue and Red team, but Blue team's outliers are skewed more to the right than Red team's. 50% of data points are within -1,000 and 1,000.
 
@@ -79,21 +79,21 @@ Present and interpret the results of your missingness permutation tests with res
 • The distribution of column Y when column X is missing and the distribution of column Y when column X is not missing, as was done in Lecture 12.
 • The empirical distribution of the test statistic used in one of your permutation tests, along with the observed statistic.
 
-<iframe src="assets/golddiffat10_missingness_on_game.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/golddiffat10_missingness_on_game.html" width="100%" height="100%" frameBorder=0></iframe>
 
 For each game number, golddiffat10's missingness changes. Thus, it seems like the missingness of golddiffat10 depends on game number.
 
-<iframe src="assets/TVD_height0.14.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/TVD_height0.14.html" width="100%" height="100%" frameBorder=0></iframe>
 
 Since the observed TVD is far right from the right end point of empirical distribution, we reject the null hypothesis. Thus, it suggests that the missingness of golddiffat10 depends on game value.
 
 ---
 
-<iframe src="assets/golddiffat10_missingness_on_result.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/golddiffat10_missingness_on_result.html" width="100%" height="100%" frameBorder=0></iframe>
 
 For each result, golddiffat10's missingness does not change. Thus, it seems like result does not explain the missingness of golddiffat10.
 
-<iframe src="assets/TVD_height0.2.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/TVD_height0.2.html" width="100%" height="100%" frameBorder=0></iframe>
 
 Since the observed TVD is inside the empirical distribution, the area of the empirical distribution to the right of the observed TVD is greater than 0.05. Thus, we keep the null hypothesis, which suggests golddiffat10's missingness does not depend on result values.
 
@@ -111,7 +111,7 @@ We chose mean as our test statistic because the distribution of golddiffat10 is 
 ### Significance level : 
 0.01
 
-<iframe src="assets/Mean_height0.08.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/Mean_height0.08.html" width="100%" height="100%" frameBorder=0></iframe>
 
 ### Resulting p-value : 
 0.0
