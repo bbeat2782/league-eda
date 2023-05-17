@@ -41,7 +41,7 @@ gameid, result, side, golddiffat10, golddiffat15
 
 2. Since all statistics from each game are recorded but we are only interested in gameid, result, side, golddiffat10, and golddiffat15, we only selected these columns.
 
-3. For result column, entries are either 0 for lose and 1 for win. We turned each 0 and 1 to False and True because ~~
+3. For result column, entries are either 0 for lose and 1 for win. We turned each 0 and 1 to False and True.
 
 ### Univariate Analysis
 
@@ -99,18 +99,22 @@ Since the observed TVD is inside the empirical distribution, the area of the emp
 
 ## Hypothesis Testing
 
-Null hypothesis : Two sides (Blue and Red) should have about the same gold at 10 minutes since a game starts --> golddiffat10 (goldat10 - opp_goldat10) should have a mean of 0.
+### Null hypothesis : 
+We assume that two sides (Blue and Red) should have about the same gold at 10 minutes since a game starts. Thus, golddiffat10 should have a mean of 0.
 
-Alternative hypothesis : Blue side has more goldat10 --> golddiffat10's mean is larger than 0.
+### Alternative hypothesis : 
+golddiffat10's mean is larger than 0.
 
-test statistic : mean
+### Test statistic : 
+We chose mean as our test statistic because the distribution of golddiffat10 is roughly normal and we are comparing quantitative difference between two sides. Also, since we are specifically looking for 'larger than 0', we didn't use absolute value to keep direction.
 
-significance level : 0.01
+### Significance level : 
+0.01
 
 <iframe src="assets/Mean_height0.08.html" width=800 height=600 frameBorder=0></iframe>
 
-resulting p-value : 0.0
+### Resulting p-value : 
+0.0
 
-conclusion : Since p-value (0.0) is less than <0.05, we reject the null hypothesis --> this suggests that the Blue side has more goldat10 than the Red side
-
-Justify why these choices are good choices for answering the question you are trying to answer:
+### Conclusion : 
+Since p-value (0.0) is less than 0.01, we reject the null hypothesis. This suggests that the Blue side has more goldat10 than the Red side. 
