@@ -75,15 +75,11 @@ We believe 'url' column is NMAR because a game with lower popularity is less lik
 
 ### Missingness Dependency
 
-Present and interpret the results of your missingness permutation tests with respect to your data and question. Embed a plotly plot related to your missingness exploration; ideas include:
-• The distribution of column Y when column X is missing and the distribution of column Y when column X is not missing, as was done in Lecture 12.
-• The empirical distribution of the test statistic used in one of your permutation tests, along with the observed statistic.
-
-<iframe src="assets/golddiffat10_missingness_on_game.html" width="100%" height="100%" frameBorder=0></iframe>
+<iframe src="assets/golddiffat10_missingness_on_game.html" width="100%" height=600 frameBorder=0></iframe>
 
 For each game number, golddiffat10's missingness changes. Thus, it seems like the missingness of golddiffat10 depends on game number.
 
-<iframe src="assets/TVD_height0.14.html" width="100%" height="100%" frameBorder=0></iframe>
+<iframe src="assets/TVD_height0.14.html" width="100%" height=600 frameBorder=0></iframe>
 
 Since the observed TVD is far right from the right end point of empirical distribution, we reject the null hypothesis. Thus, it suggests that the missingness of golddiffat10 depends on game value.
 
